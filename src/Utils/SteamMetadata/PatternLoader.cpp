@@ -1,4 +1,5 @@
 #include "PatternLoader.h"
+#include "PatternBounds.h"
 #include "OSTPlatform/include/Memory.h"
 #include "OSTPlatform/include/Numbers.h"
 #include "Utils/Logging/Log.h"
@@ -236,6 +237,12 @@ void* FindPattern(OSTPlatform::DynamicLibrary::ModuleHandle module, const char* 
 
     // Priority 1: RVA direct offset
     if (entry.rva != 0) {
+        const auto image = OSTPlatform::Memory::GetModuleImage(module);
+        if (!image || !PatternBounds::IsInModule(entry.rva, image->size)) {
+            LOG_WARN("PatternLoader: out-of-range RVA 0x{:X} for {}", entry.rva, funcName);
+            g_missingFunctions.emplace_back(funcName);
+            return nullptr;
+        }
         void* addr = reinterpret_cast<void*>(
             reinterpret_cast<uintptr_t>(module) + entry.rva);
         LOG_DEBUG("PatternLoader: {} resolved via RVA 0x{:X}", funcName, entry.rva);
