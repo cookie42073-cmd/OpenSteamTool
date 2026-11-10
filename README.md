@@ -105,6 +105,11 @@ The `extract_tickets` tool dumps the `AppTicket` and `ETicket` hex strings you n
 1. Run `build.bat` from the project root to build the project.
 2. Copy generated `dwmapi.dll`, `xinput1_4.dll` and `OpenSteamTool.dll` to the Steam root directory.
 3. Create Lua directory (for example `C:\steam\config\lua`) and place Lua scripts there. The DLL will automatically load and execute them.
+> **Important: read before installing or using this fork.** This is an independent modification of [OpenSteam001/OpenSteamTool](https://github.com/OpenSteam001/OpenSteamTool), not an official Steam or Valve product and not endorsed by those companies or the upstream maintainer.
+>
+> **Respect software rights and platform rules.** This project includes functionality that can change Steam integration and affect access controls or entitlements. Using those features without authorization may violate laws, contracts, or third-party terms. Do not use this fork to access content you are not licensed or otherwise authorized to use. Security research and compatibility testing should be performed only on systems and software you are permitted to test.
+>
+> **Use at your own risk.** Modified DLLs can affect software stability or accounts. Back up your data and review the code and release notes before use. No warranty is provided to the extent permitted by applicable law; see the [GPL-3.0 license](LICENSE). This notice does not remove statutory rights or guarantee immunity from liability.
 4. Lua example:
 ```lua
 addappid(1361510) -- unlock game with appid 1361510
@@ -266,5 +271,14 @@ build.bat
 - Debug: `build/Debug/OpenSteamTool.dll`, `build/Debug/dwmapi.dll`, `build/Debug/xinput1_4.dll`
 - Release: `build/Release/OpenSteamTool.dll`, `build/Release/dwmapi.dll`, `build/Release/xinput1_4.dll`
 
-## Disclaimer
-This project is provided for research and educational purposes only. You are responsible for complying with local laws, platform terms of service, and software licenses.
+## License and legal notice
+
+This fork preserves the original project's **GNU General Public License, version 3 (GPL-3.0)**. See [LICENSE](LICENSE) for the full terms, including notices, redistribution requirements, and the original warranty disclaimer. No separate MIT license is being applied to this GPL-covered project. Third-party components retain their own applicable licenses and notices.
+
+This is an **independent community fork** and is not affiliated with, sponsored by, or endorsed by Valve, Steam, or the upstream OpenSteamTool maintainers. Trademarks and other intellectual property remain with their respective owners. Users are responsible for obtaining necessary permissions and complying with applicable law and platform terms. A disclaimer cannot authorize unauthorized activity or remove legal responsibilities.
+
+## Help us verify fixes
+
+We are collecting reproducible reports to determine whether our changes resolve the issues users actually encounter. If you test a **supported and authorized** use case, please open an issue in [this fork's issue tracker](https://github.com/cookie42073-cmd/OpenSteamTool/issues) with the Windows version, Steam build identifier, fork commit, expected and actual behavior, reproduction steps, and relevant **redacted** diagnostics. Do not post passwords, account tokens, ownership tickets, game keys, or personal data. A successful build or a star alone is not proof a runtime issue is fixed.
+
+**If the fixes helped you, consider starring this repository.** A star helps others discover the work, and a brief report of what you tested helps us improve it for everyone.
