@@ -34,7 +34,7 @@
   </p>
 </div>
 
-**Using this community fork?** Start with the [easy Windows build instructions](#easy-windows-build-one-launcher-no-steam-installation), [download the current integration source](https://github.com/cookie42073-cmd/OpenSteamTool/archive/refs/heads/integration/combined-safety-fixes.zip), or [report a reproducible issue](https://github.com/cookie42073-cmd/OpenSteamTool/issues). The integration branch is experimental, not a validated Steam installer. If our fixes helped, consider giving this repository a star and sharing what you tested.
+**New to GitHub?** [Start here: beginner setup](docs/BEGINNER_BUILD.md). Download the [current integration branch ZIP](https://github.com/cookie42073-cmd/OpenSteamTool/archive/refs/heads/integration/combined-safety-fixes.zip), extract it, and double-click **[`SETUP-BUILD.bat`](SETUP-BUILD.bat)**. It checks for the required tools, asks before installing missing ones, and can build the source. The integration branch is experimental: this is **not** a Steam installer. [Report a reproducible issue](https://github.com/cookie42073-cmd/OpenSteamTool/issues). If the fixes helped, please consider starring the repo and describing your test.
 
 ## Feature
 
@@ -105,9 +105,9 @@ The `extract_tickets` tool dumps the `AppTicket` and `ETicket` hex strings you n
 
 ## Easy Windows build (one launcher, no Steam installation)
 
-**[Download the integration branch ZIP](https://github.com/cookie42073-cmd/OpenSteamTool/archive/refs/heads/integration/combined-safety-fixes.zip)**, extract it to a writable folder, and double-click **[`beginner-build.bat`](beginner-build.bat)** inside the extracted project. If you prefer Git, clone this fork's integration branch instead.
+**[Download the integration branch ZIP](https://github.com/cookie42073-cmd/OpenSteamTool/archive/refs/heads/integration/combined-safety-fixes.zip)**, extract it into a folder, and double-click **[`SETUP-BUILD.bat`](SETUP-BUILD.bat)**. Follow the plain-language [beginner setup guide](docs/BEGINNER_BUILD.md). If you already have C++ Build Tools and CMake installed, you can instead run [`beginner-build.bat`](beginner-build.bat) directly.
 
-The launcher checks required Windows C++ tools, configures CMake, and compiles the Release DLLs into `build/Release/`. It **does not** download or install Visual Studio, CMake, or Git for you, and **does not install into Steam**. Install the [prerequisites](docs/BEGINNER_BUILD.md) first. Read the [step-by-step guide](docs/BEGINNER_BUILD.md) for troubleshooting and the `--check-only` option.
+The guided setup checks whether Git, a C++ compiler, and CMake are available, and offers to install missing tools with your permission using Windows Package Manager. It then offers to compile the Release DLLs into `build/Release/`. It **does not install the DLLs into Steam**. No tools are installed without user confirmation. First-time installation may require administrator approval, substantial disk space, and a restart.
 
 The integration branch is **not a validated end-user runtime release**. A successful build is not proof Steam compatibility. Do not replace existing Steam DLLs with unverified test outputs. The original manual installation steps below are upstream documentation, not a recommendation to install this test branch.
 
