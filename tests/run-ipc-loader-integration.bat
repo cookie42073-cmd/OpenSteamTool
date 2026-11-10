@@ -1,5 +1,5 @@
 @echo off
-setlocal EnableExtensions
+setlocal EnableExtensions EnableDelayedExpansion
 set "ROOT=%~dp0.."
 set "VSWHERE=%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe"
 if not exist "%VSWHERE%" (
@@ -31,7 +31,7 @@ if errorlevel 1 (
   set "RESULT=2"
 ) else (
   "%TESTDIR%\ipc_loader_test.exe"
-  set "RESULT=%ERRORLEVEL%"
+  set "RESULT=!ERRORLEVEL!"
 )
 popd
 rmdir /s /q "%TESTDIR%"
