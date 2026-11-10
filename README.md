@@ -111,6 +111,8 @@ The launcher checks required Windows C++ tools, configures CMake, and compiles t
 
 The integration branch is **not a validated end-user runtime release**. A successful build is not proof Steam compatibility. Do not replace existing Steam DLLs with unverified test outputs. The original manual installation steps below are upstream documentation, not a recommendation to install this test branch.
 
+**Considering a manual runtime test?** Read the [installation, risks, backup, and rollback guide](docs/INSTALLATION_AND_ROLLBACK.md) **before making changes**. It explains what the three DLLs do and how to preserve a test environment. Using these outputs is optional and at your own risk; that does not make an unauthorized use lawful or guarantee protection from legal responsibility.
+
 ## Usage
 1. Run `build.bat` from the project root to build the project.
 2. Copy generated `dwmapi.dll`, `xinput1_4.dll` and `OpenSteamTool.dll` to the Steam root directory.
@@ -296,3 +298,5 @@ This is an **independent community fork** and is not affiliated with, sponsored 
 We are collecting reproducible reports to determine whether our changes resolve the issues users actually encounter. If you test a **supported and authorized** use case, please open an issue in [this fork's issue tracker](https://github.com/cookie42073-cmd/OpenSteamTool/issues) with the Windows version, Steam build identifier, fork commit, expected and actual behavior, reproduction steps, and relevant **redacted** diagnostics. Do not post passwords, account tokens, ownership tickets, game keys, or personal data. A successful build or a star alone is not proof a runtime issue is fixed.
 
 **If the fixes helped you, consider starring this repository.** A star helps others discover the work, and a brief report of what you tested helps us improve it for everyone.
+
+For build versus runtime setup, limitations, and safe rollback planning, see [installation and rollback](docs/INSTALLATION_AND_ROLLBACK.md).
