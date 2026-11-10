@@ -1,5 +1,6 @@
 #include "PatternLoader.h"
 #include "PatternBounds.h"
+#include "PatternReloadState.h"
 #include "OSTPlatform/include/Memory.h"
 #include "OSTPlatform/include/Numbers.h"
 #include "Utils/Logging/Log.h"
@@ -175,6 +176,9 @@ namespace PatternLoader {
 bool Load(OSTPlatform::DynamicLibrary::ModuleHandle module, const std::string& dllPath, const std::string& component)
 {
     namespace fs = std::filesystem;
+
+    // Retries must not inherit failed status or stale patterns from the previous attempt.
+    PatternReloadState::Begin(module, g_moduleMaps, g_failedModules);
 
     // Delegate fetch + cache + mirror fallback to RemoteToml.
     RemoteToml::Result r = RemoteToml::Fetch({
