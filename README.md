@@ -34,6 +34,8 @@
   </p>
 </div>
 
+**Using this community fork?** Start with the [easy Windows build instructions](#easy-windows-build-one-launcher-no-steam-installation), [download the current integration source](https://github.com/cookie42073-cmd/OpenSteamTool/archive/refs/heads/integration/combined-safety-fixes.zip), or [report a reproducible issue](https://github.com/cookie42073-cmd/OpenSteamTool/issues). The integration branch is experimental, not a validated Steam installer. If our fixes helped, consider giving this repository a star and sharing what you tested.
+
 ## Feature
 
 ### Core Unlocks
@@ -100,6 +102,14 @@ The `extract_tickets` tool dumps the `AppTicket` and `ETicket` hex strings you n
 
 ## Future
 - Steam Cloud synchronization support.(This is a huge project)
+
+## Easy Windows build (one launcher, no Steam installation)
+
+**[Download the integration branch ZIP](https://github.com/cookie42073-cmd/OpenSteamTool/archive/refs/heads/integration/combined-safety-fixes.zip)**, extract it to a writable folder, and double-click **[`beginner-build.bat`](beginner-build.bat)** inside the extracted project. If you prefer Git, clone this fork's integration branch instead.
+
+The launcher checks required Windows C++ tools, configures CMake, and compiles the Release DLLs into `build/Release/`. It **does not** download or install Visual Studio, CMake, or Git for you, and **does not install into Steam**. Install the [prerequisites](docs/BEGINNER_BUILD.md) first. Read the [step-by-step guide](docs/BEGINNER_BUILD.md) for troubleshooting and the `--check-only` option.
+
+The integration branch is **not a validated end-user runtime release**. A successful build is not proof Steam compatibility. Do not replace existing Steam DLLs with unverified test outputs. The original manual installation steps below are upstream documentation, not a recommendation to install this test branch.
 
 ## Usage
 1. Run `build.bat` from the project root to build the project.
@@ -263,8 +273,12 @@ The log level is controlled by `[log] level` in `opensteamtool.toml`.
 - Outbound HTTPS access to `raw.githubusercontent.com` on first launch after a Steam update (see [Steam version compatibility](#steam-version-compatibility)). Cached afterwards.
 
 ### Quick build
+
+For the beginner-friendly Windows launcher, double-click **[`beginner-build.bat`](beginner-build.bat)** from the extracted project folder. See the [beginner build guide](docs/BEGINNER_BUILD.md). This builds only; it does not install into Steam.
+
 ```powershell
-build.bat
+beginner-build.bat --check-only
+beginner-build.bat
 ```
 
 ### Output
@@ -275,7 +289,7 @@ build.bat
 
 This fork preserves the original project's **GNU General Public License, version 3 (GPL-3.0)**. See [LICENSE](LICENSE) for the full terms, including notices, redistribution requirements, and the original warranty disclaimer. No separate MIT license is being applied to this GPL-covered project. Third-party components retain their own applicable licenses and notices.
 
-This is an **independent community fork** and is not affiliated with, sponsored by, or endorsed by Valve, Steam, or the upstream OpenSteamTool maintainers. Trademarks and other intellectual property remain with their respective owners. Users are responsible for obtaining necessary permissions and complying with applicable law and platform terms. A disclaimer cannot authorize unauthorized activity or remove legal responsibilities.
+This is an **independent community fork** and is not affiliated with, sponsored by, or endorsed by Valve, Steam, or the upstream OpenSteamTool maintainers. Trademarks and other intellectual property remain with their respective owners. Users are responsible for ensuring that their use of this software complies with applicable laws, software licenses, and platform terms. This project is independently developed and is provided without warranty, subject to the terms of its open-source license and applicable law.
 
 ## Help us verify fixes
 
