@@ -17,11 +17,11 @@ On GitHub choose the branch named release/verified-source-preview, then Code > D
 
 Build outputs are OpenSteamTool.dll, dwmapi.dll and xinput1_4.dll. These are experimental binary artifacts, not evidence of safe compatibility with any installed Steam version.
 
-Earlier offline evidence:
-- IPC metadata loader 8/8 cases passed in an isolated C++ harness.
-- Pattern loader 15/15 cases passed in an isolated C++ harness.
+Combined preview verification (November 13, 2026):
+- IPC metadata loader 8/8 cases passed when built directly against this combined branch.
+- Pattern loader 15/15 cases passed when built directly against this combined branch.
+- The combined branch's full diagnostic Release build finished successfully (exit code 0), generating OpenSteamTool.dll, dwmapi.dll and xinput1_4.dll. This build used C++ optimization disabled and a single compile worker; the normal optimized build remains unverified.
 - Steam-monitor resolver 83/83 Python tests passed on its separate repair branch.
-- A diagnostic Release build passed with C++ optimizations disabled and one compilation worker because the stock MSVC 14.51 build had C1001 internal compiler failures.
 
 **Live Steam runtime, access-control behavior, current public metadata feed and stock optimized build remain unverified.** This branch must not be labeled as a fully working Steam release. No game content or authorization tickets are included.
 
